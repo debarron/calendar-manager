@@ -1,21 +1,36 @@
 use std::env;
-use std::vec::Vec;
-
+/*use std::vec::Vec;
 use std::io::prelude::*;
 use std::io::BufReader;
 use std::io::Read;
 use std::io::Write;
-use std::fs::{File, OpenOptions, create_dir};
+use std::fs::{File, OpenOptions, create_dir}; */
 use std::path::{Path, PathBuf};
-use std::option::Option;
-
-use std::process::exit;
+//use std::option::Option;
+//use std::process::exit;
 
 // TODO Find a way to deal with symbolic references like: ~
 // Program constants
-static DB_PATH: &'static str = "/Users/daniel/.cm/activities.cm";
+//static DB_PATH: &'static str = "/Users/daniel/.cm/activities.cm";
 
 fn main(){
+
+    // Check if .cm exists
+    // if not, create it and create activities.cm
+    // else read activities.cm
+
+    match env::home_dir(){
+       Some(path) => {
+           let p = PathBuf::from(path.push(".cm/activities.cm"));
+           println!("The path is: {}", p);
+       },
+       None => println!("No path!"),
+    }
+   
+}
+
+    /*
+
   let home_dir = match db_init_home_dir(){
     None => {
       println!("No home dir");
@@ -25,14 +40,19 @@ fn main(){
   };
 
   println!("Config ready!");
-}
+  */
 
-
+/*
 fn db_init_home_dir() -> Option<PathBuf>{
     env::home_dir()
 }
 
-fn db_init_db_dir(mut home:PathBuf) -> PathBuf {
+
+fn db_init_activites(mut home:PathBuf) -> PathBuf {
+    // Check if .cm exists
+    // if not, create it an create activities
+    // else read activites and return it
+
     home.push(".cm");
     if (!home.exists()){
         create_dir(home);
@@ -79,4 +99,4 @@ fn db_flush_to_file(_db:Vec<String>, _db_file:String){
         }
     }
 
-}
+}*/
