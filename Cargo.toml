@@ -2,3 +2,6 @@
 name = "calendar-manager"
 version = "0.0.1"
 authors = ["Daniel @debarron <de.lopezbarron@gmail.com>"]
+
+[dependencies]
+chrono = "0.4"
